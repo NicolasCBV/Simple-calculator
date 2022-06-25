@@ -1,0 +1,128 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: grid;
+  grid-template-areas: 'header' 'main';
+  grid-template-rows: 2.5rem 1fr;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: header;
+  background-color: hsl(0, 0%, 16%);
+  width: 100%;
+  height: 100%;
+  gap: 0.25rem;
+}
+
+header img {
+  width: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(241, 244, 246);
+}
+
+main {
+  grid-area: main;
+  place-self: center;
+}
+
+#calculator {
+  background-color: hsl(0, 0%, 96%);
+  border-radius: 25px;
+  width: clamp(9rem, 60vh, 15rem);
+  height: clamp(12rem, 70vh, 16rem);
+  padding: 0.25rem;
+  display: grid;
+  grid-template-areas: 'screen'
+                        'pad';
+  grid-template-rows: 30% 70%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
+}
+
+#screen {
+  grid-area: screen;
+  overflow: hidden;
+  word-break: keep-all;
+  border: 1px solid rgb(66, 66, 66);
+  width: clamp(9rem, 60vh, 15rem);
+  height: clamp(2rem, 15vh, 4rem);
+  font: clamp(1rem, 3vw, 1.3rem) 'Roboto', sans-serif;
+  display: flex;
+  border-radius: 10px;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(129, 172, 0);
+}
+
+#calculator ul{
+  grid-area: pad;
+  padding: 0.5rem;
+  margin: 1.5rem;
+  width: clamp(6rem, 55vw, 15.5rem);
+  height: clamp(6rem, 10vw, 12rem);
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+
+  place-content: center;
+  place-self: center;
+  align-items: center;
+}
+
+#calculator li {
+  padding: 0;
+  width: clamp(0.5rem, 8vw, 2rem);
+}
+
+#calculator li button {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: clamp(0.5rem, 8vw, 2rem);
+  padding: clamp(0.2rem, 2vw, 0.5rem);
+  transition: 0.2s color;
+}
+
+#calculator li button:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+@media (max-height: 405px) {
+  #calculator ul {
+    width: clamp(1rem, 25vw, 3rem);
+    height: clamp(1rem, 10vw, 4rem);
+    gap: 0;
+  }
+  #calculator li {
+    width: clamp(0.5rem, 8vw, 2rem);
+  }
+  #calculator li button {
+    width: clamp(0.5rem, 8vw, 1.5rem);
+  }
+}
+
+@media (min-width: 1000px) {
+  main div #calculator {
+    width: clamp(9rem, 60vh, 40rem);
+    height: clamp(12rem, 70vh, 20rem);
+  }
+  #calculator ul {
+    width: clamp(6rem, 45vw, 9rem);
+    height: clamp(6rem, 10vw, 8rem);
+  }
+}
